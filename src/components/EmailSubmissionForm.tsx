@@ -1,19 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { TrendingUp, DollarSign, Calendar, ArrowRight, Sparkles, Info, ArrowLeft } from "lucide-react";
 import redGWLogo from "@/assets/redgw-logo.png";
 import amandaPhoto from "@/assets/amanda-casado.jpg";
@@ -62,10 +52,7 @@ interface EmailSubmissionFormProps {
 }
 
 export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFormProps) => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -370,13 +357,11 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
     return Number.isNaN(result) ? 0 : result;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || !name) {
+  const submitRegistration = async (nameValue: string, emailValue: string) => {
+    if (!emailValue || !nameValue) {
       toast({
         title: "Error",
-        description: "Por favor completa todos los campos",
+        description: "No pudimos recuperar tus datos. Vuelve al inicio e inténtalo de nuevo.",
         variant: "destructive",
       });
       return;
@@ -398,8 +383,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
 
       // Guardar en la base de datos
       const { error } = await supabase.from("registrations").insert({
-        name,
-        email,
+        name: nameValue,
+        email: emailValue,
         plan_id: selectedPlan.id,
         plan_title: planTitle,
         total_price: totalPrice,
@@ -419,8 +404,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name,
-            email,
+            name: nameValue,
+            email: emailValue,
             selectedOption: planTitle,
             totalPrice,
             monthlyPayment: selectedPlan.monthlyPayment,
@@ -438,10 +423,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
         title: "¡Solicitud enviada!",
         description: "Nos pondremos en contacto contigo pronto.",
       });
-      
-      setEmail("");
-      setName("");
-      setIsDialogOpen(false);
+
       onBack();
     } catch (error) {
       console.error("Error saving registration:", error);
@@ -459,9 +441,40 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
     navigate("/");
   };
 
-  const handleBackFromDialog = () => {
-    setIsDialogOpen(false);
-    onBack();
+  const handleActivate = async () => {
+    if (loading) return;
+
+    if (typeof window === "undefined") {
+      toast({
+        title: "Error",
+        description: "No pudimos acceder a tus datos. Recarga la página e inténtalo de nuevo.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const storedData = window.localStorage.getItem("globalWorkerData");
+
+    if (!storedData) {
+      toast({
+        title: "Datos incompletos",
+        description: "Vuelve al inicio y completa tus datos antes de continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const parsedData = JSON.parse(storedData) as { name?: string; email?: string };
+      await submitRegistration(parsedData.name ?? "", parsedData.email ?? "");
+    } catch (error) {
+      console.error("Error parsing stored user data:", error);
+      toast({
+        title: "Error",
+        description: "Hubo un problema al leer tus datos. Vuelve al inicio e inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -1072,138 +1085,44 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
             </p>
           )}
         </div>
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <div
+        <div
+          className={cn(
+            "mx-auto mt-6 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center",
+            shouldUsePremiumFormStyle && "mt-8 max-w-3xl",
+          )}
+        >
+          <Button
+            type="button"
+            onClick={handleGoHome}
             className={cn(
-              "mx-auto mt-6 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center",
-              shouldUsePremiumFormStyle && "mt-8 max-w-3xl",
+              "flex-1 bg-red-600 text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-red-500",
+              shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
             )}
           >
-            <Button
-              type="button"
-              onClick={handleGoHome}
-              className={cn(
-                "flex-1 bg-red-600 text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-red-500",
-                shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
-              )}
-            >
-              Este no es mi opcion favorita
-            </Button>
-            <DialogTrigger asChild>
-              <Button
-                className={cn(
-                  "flex-1 bg-green-600 text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-green-500",
-                  shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
-                )}
-              >
-                Activa tu camino
-              </Button>
-            </DialogTrigger>
-          </div>
-          <DialogContent
+            Este no es mi opcion favorita
+          </Button>
+          <Button
+            type="button"
+            onClick={handleActivate}
+            disabled={loading}
             className={cn(
-              "max-w-xl",
-              shouldUsePremiumFormStyle && "sm:max-w-2xl border border-primary/20 bg-gradient-to-br from-primary/5 via-background to-accent/10",
+              "flex-1 bg-green-600 text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-green-500",
+              shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
+              loading && "opacity-80",
             )}
           >
-            <DialogHeader className="text-left">
-              <DialogTitle>{contactSectionTitle ?? "Activa tu camino"}</DialogTitle>
-              {contactSectionDescription && (
-                <DialogDescription className="text-left">
-                  {contactSectionDescription}
-                </DialogDescription>
-              )}
-            </DialogHeader>
-            <form
-              onSubmit={handleSubmit}
-              className={cn(
-                "mt-4 space-y-4",
-                shouldUsePremiumFormStyle && "grid gap-6 sm:grid-cols-2",
-              )}
-            >
-              <div
-                className={cn(
-                  "space-y-2",
-                  shouldUsePremiumFormStyle && "sm:col-span-1",
-                )}
-              >
-                <Label htmlFor="name" className="text-sm font-medium">
-                  Nombre completo *
-                </Label>
-                <Input
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Tu nombre completo"
-                  required
-                  className="transition-all duration-200 focus:scale-[1.01]"
-                />
-              </div>
-
-              <div
-                className={cn(
-                  "space-y-2",
-                  shouldUsePremiumFormStyle && "sm:col-span-1",
-                )}
-              >
-                <Label htmlFor="email" className="text-sm font-medium">
-                  Email *
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  required
-                  className="transition-all duration-200 focus:scale-[1.01]"
-                />
-              </div>
-
-              <div
-                className={cn(
-                  "rounded-lg border border-primary/10 bg-primary/5 p-4",
-                  shouldUsePremiumFormStyle && "sm:col-span-2",
-                )}
-              >
-                <p className="text-xs text-muted-foreground">
-                  Al enviar este formulario, aceptas que GlobalWorking se ponga en contacto contigo
-                  para ofrecerte información sobre el programa seleccionado.
-                </p>
-              </div>
-
-              <div
-                className={cn(
-                  "flex gap-3 pt-2",
-                  shouldUsePremiumFormStyle && "sm:col-span-2 flex-col sm:flex-row",
-                )}
-              >
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handleBackFromDialog}
-                  className={cn(
-                    "flex-1 transition-all duration-200 hover:scale-[1.02]",
-                    shouldUsePremiumFormStyle && "w-full sm:w-auto",
-                  )}
-                >
-                  Volver
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className={cn(
-                    "flex-1 bg-gradient-to-r from-primary to-accent shadow-lg transition-all duration-200 hover:scale-[1.02] hover:opacity-90",
-                    shouldUsePremiumFormStyle && "w-full sm:w-auto",
-                  )}
-                >
-                  {loading ? "Enviando..." : "Enviar solicitud"}
-                </Button>
-              </div>
-            </form>
-          </DialogContent>
-        </Dialog>
+            {loading ? "Enviando..." : "Activa tu camino"}
+          </Button>
+        </div>
+        <div
+          className={cn(
+            "mx-auto mt-4 max-w-2xl rounded-lg border border-primary/10 bg-primary/5 p-4 text-center text-xs text-muted-foreground",
+            shouldUsePremiumFormStyle && "max-w-3xl",
+          )}
+        >
+          Al continuar confirmas que GlobalWorking pueda ponerse en contacto contigo para ofrecerte información
+          sobre el programa seleccionado.
+        </div>
       </div>
 
       {shouldShowAmandaContact && (
