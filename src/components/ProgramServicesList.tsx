@@ -15,18 +15,41 @@ const programServices = [
 
 interface ProgramServicesListProps {
   className?: string;
+  variant?: "stacked" | "grid";
 }
 
-export const ProgramServicesList = ({ className }: ProgramServicesListProps) => {
+export const ProgramServicesList = ({ className, variant = "stacked" }: ProgramServicesListProps) => {
+  const isGrid = variant === "grid";
+
   return (
-    <ul className={cn("mt-4 space-y-2 text-sm text-foreground", className)}>
+    <ul
+      className={cn(
+        "text-sm text-foreground",
+        isGrid
+          ? "mt-6 grid gap-4 sm:grid-cols-2"
+          : "mt-4 space-y-2",
+        className,
+      )}
+    >
       {programServices.map((service) => {
         const needsManualBreak =
           service === "Curso de Desarrollo Profesional y Cultura";
 
         return (
-          <li key={service} className="flex items-start gap-2">
-            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+          <li
+            key={service}
+            className={cn(
+              "flex items-start gap-2",
+              isGrid &&
+                "rounded-xl border border-border/60 bg-background/80 p-4 shadow-sm backdrop-blur-sm",
+            )}
+          >
+            <Check
+              className={cn(
+                "mt-0.5 h-4 w-4 flex-shrink-0 text-accent",
+                isGrid && "mt-1 h-5 w-5 text-primary",
+              )}
+            />
             {needsManualBreak ? (
               <span className="leading-relaxed">
                 Curso de Desarrollo Profesional y

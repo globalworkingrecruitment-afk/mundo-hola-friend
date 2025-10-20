@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Crown, PiggyBank, Sparkles, BadgeCheck, Globe2 } from "lucide-react";
-import { ProgramServicesList } from "@/components/ProgramServicesList";
 
 interface InvestmentCompletePlanCardProps {
   onSelect?: () => void;
@@ -20,7 +19,6 @@ export const InvestmentCompletePlanCard = ({
       </div>
       <CardHeader className="pb-4 text-center">
         <CardTitle className="text-xl">Inversión Completa</CardTitle>
-        <ProgramServicesList className="mx-auto max-w-xs text-left" />
       </CardHeader>
       <CardContent className="flex flex-1 flex-col">
         <div className="flex-1 space-y-4">
