@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PaymentPlanCard } from "@/components/PaymentPlanCard";
 import { FlexiblePaymentPlanCard, SharedInvestmentOption } from "@/components/FlexiblePaymentPlanCard";
 import { InvestmentCompletePlanCard } from "@/components/InvestmentCompletePlanCard";
 import { EmailSubmissionForm } from "@/components/EmailSubmissionForm";
+import { OnboardingTutorial } from "@/components/OnboardingTutorial";
 import logoGW from "@/assets/globalworking-logo.png";
 import logoRed from "@/assets/redgw-logo.png";
 import norwayHero from "@/assets/norway-fjord-hero.jpg";
@@ -44,7 +45,21 @@ interface PlanSelection {
 
 const Index = () => {
   const [selectedPlan, setSelectedPlan] = useState<PlanSelection | null>(null);
+  const [showTutorial, setShowTutorial] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Verificar si el usuario ya vio el tutorial
+    const tutorialCompleted = localStorage.getItem("tutorialCompleted");
+    if (!tutorialCompleted) {
+      setShowTutorial(true);
+    }
+  }, []);
+
+  const handleTutorialComplete = () => {
+    localStorage.setItem("tutorialCompleted", "true");
+    setShowTutorial(false);
+  };
 
   const financingHighlights = [
     {
@@ -181,6 +196,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Tutorial interactivo */}
+      {showTutorial && <OnboardingTutorial onComplete={handleTutorialComplete} />}
       {/* Header */}
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6 flex items-center justify-between">
@@ -244,7 +261,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+              <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12" data-tutorial="plans">
                 {/* Opción 1: Amortización Total */}
                 <PaymentPlanCard
                   title="Amortización Total"
@@ -263,7 +280,7 @@ const Index = () => {
               </div>
 
               {/* Contact Section */}
-              <div className="max-w-4xl mx-auto bg-gradient-to-br from-accent/10 to-primary/10 rounded-lg p-8 mb-12 border-2 border-accent/20">
+              <div className="max-w-4xl mx-auto bg-gradient-to-br from-accent/10 to-primary/10 rounded-lg p-8 mb-12 border-2 border-accent/20" data-tutorial="contact">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div className="flex justify-center">
                     <div className="relative">
