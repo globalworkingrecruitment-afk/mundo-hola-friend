@@ -898,73 +898,73 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
       )}
 
       {isVikingPlan && (
-        <div className="mt-8 space-y-4 rounded-xl border bg-muted/40 p-6">
-            <div className="flex flex-col gap-3">
-              <div>
-                <h3 className="text-xl font-semibold text-foreground">
-                  Programa de Formación y Desarrollo del Talento Global Working - Modalidad Vikinga
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la Red Global Working.
-                </p>
-              </div>
+        <Card className="mt-8 overflow-hidden border-2 shadow-[var(--shadow-elegant)]">
+          <CardHeader className="bg-gradient-to-r from-primary to-accent pb-8 text-primary-foreground">
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              <CardTitle className="text-2xl">
+                Programa de Formación y Desarrollo del Talento Global Working - Modalidad Vikinga
+              </CardTitle>
             </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-sm">
-              <thead>
-                <tr className="bg-muted text-left">
-                  <th scope="col" className="sr-only px-4 py-3 font-semibold text-muted-foreground">
-                    Concepto
-                  </th>
-                  {vikingScenarios.map((scenario) => (
-                    <th
-                      key={scenario.key}
-                      scope="col"
-                      className="px-4 py-3 font-semibold text-muted-foreground"
-                    >
-                      {scenario.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {vikingRows.map((row, rowIndex) => (
-                  <tr key={row.label} className="border-t border-border">
-                    <th
-                      scope="row"
-                      className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
-                    >
-                      {row.label}
+            <CardDescription className="text-base text-primary-foreground/90">
+              Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la Red Global Working.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6 p-6">
+            <div className="overflow-x-auto rounded-xl border bg-background shadow-sm">
+              <table className="w-full min-w-[640px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-muted/80 text-left">
+                    <th scope="col" className="sr-only px-4 py-3 font-semibold text-muted-foreground">
+                      Concepto
                     </th>
                     {vikingScenarios.map((scenario) => (
-                      <td
-                        key={`${row.label}-${scenario.key}`}
-                        className={cn(
-                          "px-4 py-4 text-center text-sm",
-                          scenario.key === "moreThan18"
-                            ? "font-semibold text-foreground"
-                            : "text-muted-foreground",
-                        )}
+                      <th
+                        key={scenario.key}
+                        scope="col"
+                        className="px-4 py-3 text-sm font-semibold text-foreground"
                       >
-                        {row.values[scenario.key]}
-                      </td>
+                        {scenario.label}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            El valor del Programa de Formación y Desarrollo del Talento de Global Working es de
-            5.300€. Eligiendo la Modalidad Vikinga, tendrás un descuento de 1.500€ (un 28,3% de ahorro)
-            al trabajar entre 13 y 18 meses. Además, te beneficiarás de hasta 2.800€ de ahorro (un
-            52,83%) al trabajar más de 18 meses en la Red Global Working como enfermera/o. Una
-            estupenda opción que te permite amortizar todo el Programa en tan solo un año y medio de
-            experiencia en la RedGW y al mismo tiempo disfrutar de la experiencia de vivir en
-            Noruega.
-          </p>
-        </div>
+                </thead>
+                <tbody>
+                  {vikingRows.map((row) => (
+                    <tr key={row.label} className="border-t border-border">
+                      <th
+                        scope="row"
+                        className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
+                      >
+                        {row.label}
+                      </th>
+                      {vikingScenarios.map((scenario) => (
+                        <td
+                          key={`${row.label}-${scenario.key}`}
+                          className={cn(
+                            "px-4 py-4 text-sm",
+                            scenario.key === "moreThan18"
+                              ? "font-semibold text-foreground"
+                              : "text-muted-foreground",
+                          )}
+                        >
+                          {row.values[scenario.key]}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              El valor del Programa de Formación y Desarrollo del Talento de Global Working es de 5.300€. Eligiendo la Modalidad
+              Vikinga, tendrás un descuento de 1.500€ (un 28,3% de ahorro) al trabajar entre 13 y 18 meses. Además, te
+              beneficiarás de hasta 2.800€ de ahorro (un 52,83%) al trabajar más de 18 meses en la Red Global Working como
+              enfermera/o. Una estupenda opción que te permite amortizar todo el Programa en tan solo un año y medio de
+              experiencia en la RedGW y al mismo tiempo disfrutar de la experiencia de vivir en Noruega.
+            </p>
+          </CardContent>
+        </Card>
       )}
 
       {isAuroraPlan && (
