@@ -60,13 +60,13 @@ const Welcome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-primary/30 via-accent/25 to-secondary/30 relative overflow-hidden">
       {/* Background elements */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{ backgroundImage: `url(${norwayHero})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-accent/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-primary/20 to-accent/20" />
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMiIvPjwvZz48L2c+PC9zdmc+')] opacity-10" />
 
       {/* Content */}
@@ -161,7 +161,8 @@ const Welcome = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full text-lg gap-2 group"
+                variant="secondary"
+                className="w-full text-lg gap-2 group shadow-lg shadow-secondary/30 hover:shadow-secondary/50"
               >
                 Comencemos este viaje juntos
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
