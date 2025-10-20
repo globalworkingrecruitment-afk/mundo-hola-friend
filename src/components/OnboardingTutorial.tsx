@@ -26,6 +26,7 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
     const removeHighlights = () => {
       document.querySelectorAll('[data-tutorial]').forEach(el => {
         el.classList.remove('tutorial-highlight');
+        el.classList.remove('tutorial-highlight-contact');
       });
     };
 
@@ -40,6 +41,7 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
       const contactSection = document.querySelector('[data-tutorial="contact"]');
       if (contactSection) {
         contactSection.classList.add('tutorial-highlight');
+        contactSection.classList.add('tutorial-highlight-contact');
       }
     } else if (currentStep === 3) {
       removeHighlights();
