@@ -833,68 +833,70 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
       )}
 
       {isFiordoPlan && (
-        <div className="mt-8 space-y-4 rounded-xl border bg-muted/40 p-6">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground">
+        <Card className="mt-8 overflow-hidden border-2 shadow-[var(--shadow-elegant)]">
+          <CardHeader className="bg-gradient-to-r from-primary to-accent pb-8 text-primary-foreground">
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              <CardTitle className="text-2xl">
                 Programa de Formación y Desarrollo del Talento Global Working - Modalidad Fiordo
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la
-                Red Global Working.
-              </p>
+              </CardTitle>
             </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-sm">
-              <thead>
-                <tr className="bg-muted text-center">
-                  <th scope="col" className="px-4 py-3 text-left font-semibold text-muted-foreground">
-                    Meses
-                  </th>
-                  {fiordoScenarios.map((scenario) => (
-                    <th
-                      key={scenario.key}
-                      scope="col"
-                      className="px-4 py-3 text-center font-semibold text-muted-foreground"
-                    >
-                      {scenario.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {fiordoRows.map((row) => (
-                  <tr key={row.label} className="border-t border-border">
-                    <th
-                      scope="row"
-                      className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
-                    >
-                      {row.label}
+            <CardDescription className="text-base text-primary-foreground/90">
+              Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la Red Global Working.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6 p-6">
+            <div className="overflow-x-auto rounded-xl border bg-background shadow-sm">
+              <table className="w-full min-w-[640px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-muted/80 text-left">
+                    <th scope="col" className="px-4 py-3 text-sm font-semibold text-muted-foreground">
+                      Meses
                     </th>
                     {fiordoScenarios.map((scenario) => (
-                      <td
-                        key={`${row.label}-${scenario.key}`}
-                        className="px-4 py-4 text-center text-sm text-muted-foreground"
+                      <th
+                        key={scenario.key}
+                        scope="col"
+                        className="px-4 py-3 text-sm font-semibold text-foreground"
                       >
-                        {row.values[scenario.key]}
-                      </td>
+                        {scenario.label}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            El valor del Programa de Formación y Desarrollo del Talento de Global Working es de 5.300€. Eligiendo la Modalidad
-            Fiordo, tendrás un descuento de 1.500€ (un 28,3% de ahorro) al trabajar entre 13 y 20 meses como enfermero/a en la
-            RedGW. Además, trabajando entre 21 y 22 meses el ahorro asciende a 3.000€ (lo que supone un 56,6% de ahorro). Con tan
-            solo más de 22 meses de experiencia en la RedGW el ahorro llega a alcanzar los 3.800€, lo que equivale a un 71,7%. En
-            definitiva, una opción ideal para vivir una experiencia enriquecedora en Noruega, trabajar en su Sistema Público y
-            descubrir las maravillas del país escandinavo.
-          </p>
-        </div>
+                </thead>
+                <tbody>
+                  {fiordoRows.map((row) => (
+                    <tr key={row.label} className="border-t border-border">
+                      <th
+                        scope="row"
+                        className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
+                      >
+                        {row.label}
+                      </th>
+                      {fiordoScenarios.map((scenario) => (
+                        <td
+                          key={`${row.label}-${scenario.key}`}
+                          className="px-4 py-4 text-sm text-muted-foreground"
+                        >
+                          {row.values[scenario.key]}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm text-muted-foreground">
+              El valor del Programa de Formación y Desarrollo del Talento de Global Working es de 5.300€. Eligiendo la Modalidad
+              Fiordo, tendrás un descuento de 1.500€ (un 28,3% de ahorro) al trabajar entre 13 y 20 meses como enfermero/a en la
+              RedGW. Además, trabajando entre 21 y 22 meses el ahorro asciende a 3.000€ (lo que supone un 56,6% de ahorro). Con tan
+              solo más de 22 meses de experiencia en la RedGW el ahorro llega a alcanzar los 3.800€, lo que equivale a un 71,7%.
+              En definitiva, una opción ideal para vivir una experiencia enriquecedora en Noruega, trabajar en su Sistema Público
+              y descubrir las maravillas del país escandinavo.
+            </p>
+          </CardContent>
+        </Card>
       )}
 
       {isVikingPlan && (
