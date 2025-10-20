@@ -46,6 +46,8 @@ const Welcome = () => {
   const onSubmit = (data: FormValues) => {
     // Guardar datos en localStorage para usar después si es necesario
     localStorage.setItem("globalWorkerData", JSON.stringify(data));
+    // Marcar que debe mostrar el tutorial
+    localStorage.setItem("showTutorial", "true");
     // Redirigir a la página principal
     navigate("/inicio");
   };

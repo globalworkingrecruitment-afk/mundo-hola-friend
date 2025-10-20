@@ -90,34 +90,60 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
 
       {/* Spotlight effect en la sección actual */}
       {currentStep === 1 && (
-        <div className="fixed inset-0 z-40 pointer-events-none">
+        <div 
+          className="fixed z-[45] pointer-events-none"
+          style={{
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        >
+          <style>{`
+            @keyframes spotlight-pulse {
+              0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 30px 10px hsl(var(--primary)); }
+              50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 50px 15px hsl(var(--primary)); }
+            }
+          `}</style>
           <div 
-            className="absolute bg-transparent border-4 border-primary rounded-lg animate-pulse"
+            className="absolute bg-transparent border-4 border-primary rounded-lg"
             style={{
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "90%",
-              maxWidth: "1200px",
-              height: "400px",
-              boxShadow: "0 0 0 9999px rgba(0, 0, 0, 0.6)",
+              width: "min(90vw, 1200px)",
+              height: "min(60vh, 450px)",
+              animation: "spotlight-pulse 2s ease-in-out infinite",
             }}
           />
         </div>
       )}
 
       {currentStep === 2 && (
-        <div className="fixed inset-0 z-40 pointer-events-none">
+        <div 
+          className="fixed z-[45] pointer-events-none"
+          style={{
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        >
+          <style>{`
+            @keyframes spotlight-pulse {
+              0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 30px 10px hsl(var(--primary)); }
+              50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 50px 15px hsl(var(--primary)); }
+            }
+          `}</style>
           <div 
-            className="absolute bg-transparent border-4 border-primary rounded-lg animate-pulse"
+            className="absolute bg-transparent border-4 border-primary rounded-lg"
             style={{
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "90%",
-              maxWidth: "900px",
-              height: "500px",
-              boxShadow: "0 0 0 9999px rgba(0, 0, 0, 0.6)",
+              width: "min(90vw, 900px)",
+              height: "min(70vh, 550px)",
+              animation: "spotlight-pulse 2s ease-in-out infinite",
             }}
           />
         </div>

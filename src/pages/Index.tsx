@@ -49,10 +49,11 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Verificar si el usuario ya vio el tutorial
-    const tutorialCompleted = localStorage.getItem("tutorialCompleted");
-    if (!tutorialCompleted) {
+    // Verificar si debe mostrar el tutorial (viene del formulario)
+    const shouldShowTutorial = localStorage.getItem("showTutorial");
+    if (shouldShowTutorial === "true") {
       setShowTutorial(true);
+      localStorage.removeItem("showTutorial"); // Limpiar flag
     }
   }, []);
 
