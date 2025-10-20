@@ -110,10 +110,19 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const financingGratuityRows: FinancingGratuityRow[] = isFinancingPlan
     ? [
         {
+          label: "Hay que pagar en caso de abandono",
+          values: {
+            between5And12: "5.300€",
+            between13And24: "3.800€",
+            between25And30: "2.300€",
+            moreThan30: "0€",
+          },
+        },
+        {
           label: "Descuento del que te beneficias por trabajar en la RedGW",
           values: {
             between5And12: "0€",
-            between13And24: "2.300€",
+            between13And24: "1.500€",
             between25And30: "3.000€",
             moreThan30: "5.300€",
           },
@@ -817,9 +826,6 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
               <p>
                 Tu compromiso y dedicación se reflejan directamente en un ahorro progresivo sobre el valor del programa.
                 Mientras más meses te quedas, más se reduce el importe total que debes asumir.
-              </p>
-              <p className="text-xs text-muted-foreground/80">
-                *Las cifras mostradas son orientativas y pueden variar según tu situación profesional y fiscal.
               </p>
             </div>
           </CardContent>
