@@ -163,7 +163,7 @@ const Welcome = () => {
                 size="lg"
                 className="w-full text-lg gap-2 group"
               >
-                Comencemos el viaje
+                Comencemos este viaje juntos
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
