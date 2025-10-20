@@ -160,6 +160,19 @@ All colors MUST be HSL.
     animation: tutorial-pulse 2s ease-in-out infinite;
   }
 
+  .tutorial-highlight-contact {
+    background: linear-gradient(
+      to bottom right,
+      hsl(var(--background) / 0.96),
+      hsl(var(--card) / 0.98)
+    ) !important;
+    border-color: hsl(var(--primary) / 0.4) !important;
+  }
+
+  .tutorial-highlight-contact button {
+    filter: none;
+  }
+
   @keyframes tutorial-pulse {
     0%, 100% {
       box-shadow: 0 0 0 4px hsl(var(--primary)), 0 0 40px 10px hsl(var(--primary) / 0.5);

@@ -22,13 +22,11 @@ import jordiJaviMartorell from "@/assets/jordi-javi-martorell.jpg";
 import jessicaAsensio from "@/assets/jessica-asensio.jpeg";
 import guilleMartin from "@/assets/guille-martin.jpg";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { Instagram, Calendar, Handshake, ShieldCheck } from "lucide-react";
 import {
   ProgramGalleryGrid,
   type ProgramGalleryItem,
 } from "@/components/ProgramGalleryGrid";
-import { InvestmentPlansPreviewDialog } from "@/components/InvestmentPlansPreviewDialog";
 
 // Extended plan structure for new system
 interface PlanSelection {
@@ -46,7 +44,6 @@ interface PlanSelection {
 const Index = () => {
   const [selectedPlan, setSelectedPlan] = useState<PlanSelection | null>(null);
   const [showTutorial, setShowTutorial] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Verificar si debe mostrar el tutorial (viene del formulario)
@@ -201,11 +198,8 @@ const Index = () => {
       {showTutorial && <OnboardingTutorial onComplete={handleTutorialComplete} />}
       {/* Header */}
       <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-6 flex items-center justify-center">
           <img src={logoGW} alt="GlobalWorking" className="h-12" />
-          <Button variant="ghost" onClick={() => navigate('/admin')}>
-            Admin
-          </Button>
         </div>
       </header>
 
@@ -254,12 +248,6 @@ const Index = () => {
                   Selecciona el modelo que mejor se adapte a tus necesidades.
                   A mayor inversión inicial, menor período de amortización en destino.
                 </p>
-                <div className="mt-6">
-                  <InvestmentPlansPreviewDialog
-                    financingHighlights={financingHighlights}
-                    galleryItems={galleryItems}
-                  />
-                </div>
               </div>
 
               <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12" data-tutorial="plans">
