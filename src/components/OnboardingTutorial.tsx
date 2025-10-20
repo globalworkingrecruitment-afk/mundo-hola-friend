@@ -21,6 +21,33 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Agregar clase de highlight a la sección actual
+    const removeHighlights = () => {
+      document.querySelectorAll('[data-tutorial]').forEach(el => {
+        el.classList.remove('tutorial-highlight');
+      });
+    };
+
+    removeHighlights();
+
+    if (currentStep === 1) {
+      const plansSection = document.querySelector('[data-tutorial="plans"]');
+      if (plansSection) {
+        plansSection.classList.add('tutorial-highlight');
+      }
+    } else if (currentStep === 2) {
+      const contactSection = document.querySelector('[data-tutorial="contact"]');
+      if (contactSection) {
+        contactSection.classList.add('tutorial-highlight');
+      }
+    } else if (currentStep === 3) {
+      removeHighlights();
+    }
+
+    return removeHighlights;
+  }, [currentStep]);
+
   const scrollToPlans = () => {
     const plansSection = document.querySelector('[data-tutorial="plans"]');
     if (plansSection) {
@@ -87,67 +114,6 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-fade-in"
         onClick={handleSkip}
       />
-
-      {/* Spotlight effect en la sección actual */}
-      {currentStep === 1 && (
-        <div 
-          className="fixed z-[45] pointer-events-none"
-          style={{
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
-        >
-          <style>{`
-            @keyframes spotlight-pulse {
-              0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 30px 10px hsl(var(--primary)); }
-              50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 50px 15px hsl(var(--primary)); }
-            }
-          `}</style>
-          <div 
-            className="absolute bg-transparent border-4 border-primary rounded-lg"
-            style={{
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "min(90vw, 1200px)",
-              height: "min(60vh, 450px)",
-              animation: "spotlight-pulse 2s ease-in-out infinite",
-            }}
-          />
-        </div>
-      )}
-
-      {currentStep === 2 && (
-        <div 
-          className="fixed z-[45] pointer-events-none"
-          style={{
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
-        >
-          <style>{`
-            @keyframes spotlight-pulse {
-              0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 30px 10px hsl(var(--primary)); }
-              50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 50px 15px hsl(var(--primary)); }
-            }
-          `}</style>
-          <div 
-            className="absolute bg-transparent border-4 border-primary rounded-lg"
-            style={{
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "min(90vw, 900px)",
-              height: "min(70vh, 550px)",
-              animation: "spotlight-pulse 2s ease-in-out infinite",
-            }}
-          />
-        </div>
-      )}
 
       {/* Mascota y bocadillo */}
       <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4 animate-slide-up">
