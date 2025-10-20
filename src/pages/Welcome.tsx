@@ -53,10 +53,58 @@ const Welcome = () => {
   };
 
   const promotions = [
-    { value: "promo-113-online-feb2025", label: "Promoción 113 Online - Febrero 2025" },
-    { value: "promo-112-semi-ene2025", label: "Promoción 112 Semipresencial - Enero 2025" },
-    { value: "promo-111-presencial-dic2024", label: "Promoción 111 Presencial - Diciembre 2024" },
-    { value: "promo-110-online-nov2024", label: "Promoción 110 Online - Noviembre 2024" },
+    {
+      value: "promocion-113-online-espana-20250204",
+      label: "Promoción 113 · Online · España · 4/2/2025 - 27/2/2026",
+    },
+    {
+      value: "promocion-114-online-italia-20250203",
+      label: "Promoción 114 · Online · Italia · 3/2/2025 - 27/2/2026",
+    },
+    {
+      value: "promocion-115-online-europa-20250325",
+      label: "Promoción 115 · Online · Europa · 25/3/2025 - 13/3/2026",
+    },
+    {
+      value: "promocion-116-online-francia-20250317",
+      label: "Promoción 116 · Online · Francia · 17/3/2025 - 13/3/2026",
+    },
+    {
+      value: "promocion-117-semi-espana-20250422",
+      label: "Promoción 117 · Semi · España · 22/4/2025 - 31/12/2025",
+    },
+    {
+      value: "promocion-118-online-italia-20250616",
+      label: "Promoción 118 · Online · Italia · 16/6/2025 - 24/4/2026",
+    },
+    {
+      value: "promocion-119-online-espana-20250609",
+      label: "Promoción 119 · Online · España · 9/6/2025 - 24/4/2026",
+    },
+    {
+      value: "promocion-120-semipresencial-espana-20250915",
+      label: "Promoción 120 · Semipresencial · España · 15/9/2025 - 15/5/2026",
+    },
+    {
+      value: "promocion-120-online-espana-20250915",
+      label: "Promoción 120 · Online · España · 15/9/2025 - 15/5/2026",
+    },
+    {
+      value: "promocion-121-semipresencial-italia-20250915",
+      label: "Promoción 121 · Semipresencial · Italia · 15/9/2025 - 29/5/2026",
+    },
+    {
+      value: "promocion-121-online-italia-20250915",
+      label: "Promoción 121 · Online · Italia · 15/9/2025 - 29/5/2026",
+    },
+    {
+      value: "promocion-122-online-fr-esp-eu-20250915",
+      label: "Promoción 122 · Online · FR - ESP - EU · 15/9/2025 - 29/5/2026",
+    },
+    {
+      value: "promocion-123-presencial-espana-20251007",
+      label: "Promoción 123 · Presen. · España · 7/10/2025 - 28/3/2026",
+    },
   ];
 
   return (
