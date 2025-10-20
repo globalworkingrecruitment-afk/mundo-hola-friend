@@ -4,6 +4,7 @@ import { FlexiblePaymentPlanCard, SharedInvestmentOption } from "@/components/Fl
 import { InvestmentCompletePlanCard } from "@/components/InvestmentCompletePlanCard";
 import { EmailSubmissionForm } from "@/components/EmailSubmissionForm";
 import { OnboardingTutorial } from "@/components/OnboardingTutorial";
+import { ProgramServicesList } from "@/components/ProgramServicesList";
 import logoGW from "@/assets/globalworking-logo.png";
 import logoRed from "@/assets/redgw-logo.png";
 import norwayHero from "@/assets/norway-fjord-hero.jpg";
@@ -248,6 +249,23 @@ const Index = () => {
                   Selecciona el modelo que mejor se adapte a tus necesidades.
                   A mayor inversión inicial, menor período de amortización en destino.
                 </p>
+              </div>
+
+              <div className="max-w-5xl mx-auto mb-12">
+                <div className="rounded-3xl border border-accent/20 bg-gradient-to-br from-background/95 via-background/90 to-accent/10 p-8 shadow-lg shadow-accent/5">
+                  <div className="mx-auto max-w-3xl text-center">
+                    <h3 className="text-2xl font-bold text-foreground">
+                      Todo lo que incluyen nuestros planes
+                    </h3>
+                    <p className="mt-3 text-base text-muted-foreground">
+                      Accede a la formación integral, el acompañamiento experto y los recursos que necesitas para ejercer como enfermero en Noruega, sin importar el modelo de inversión que elijas.
+                    </p>
+                  </div>
+                  <ProgramServicesList
+                    variant="grid"
+                    className="mt-8"
+                  />
+                </div>
               </div>
 
               <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12" data-tutorial="plans">

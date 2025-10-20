@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
 
-import { ProgramServicesList } from "@/components/ProgramServicesList";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -136,7 +135,6 @@ export const FlexiblePaymentPlanCard = ({
       )}
       <CardHeader className="pb-4 text-center">
         <CardTitle className="text-xl">Inversión Compartida</CardTitle>
-        <ProgramServicesList className="mx-auto max-w-xs text-left" />
         <p className="text-sm text-muted-foreground">Tres modalidades con la misma formación</p>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col">
