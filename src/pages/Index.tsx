@@ -27,6 +27,7 @@ import {
   ProgramGalleryGrid,
   type ProgramGalleryItem,
 } from "@/components/ProgramGalleryGrid";
+import { InvestmentPlansPreviewDialog } from "@/components/InvestmentPlansPreviewDialog";
 
 // Extended plan structure for new system
 interface PlanSelection {
@@ -235,6 +236,12 @@ const Index = () => {
                   Selecciona el modelo que mejor se adapte a tus necesidades.
                   A mayor inversión inicial, menor período de amortización en destino.
                 </p>
+                <div className="mt-6">
+                  <InvestmentPlansPreviewDialog
+                    financingHighlights={financingHighlights}
+                    galleryItems={galleryItems}
+                  />
+                </div>
               </div>
 
               <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
