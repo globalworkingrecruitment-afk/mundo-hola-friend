@@ -164,7 +164,7 @@ const Welcome = () => {
                 Bienvenido a Global Working
               </h1>
               <p className="text-lg text-muted-foreground">
-                Estamos encantados de acompañarte en esta aventura internacional
+                Estamos encantados de acompañarte en esta experiencia internacional
               </p>
             </div>
 
