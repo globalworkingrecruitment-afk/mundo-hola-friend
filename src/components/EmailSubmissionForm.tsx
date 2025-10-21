@@ -110,7 +110,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const financingGratuityRows: FinancingGratuityRow[] = isFinancingPlan
     ? [
         {
-          label: "Hay que pagar en caso de abandono",
+          label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
             between5And12: "5.300€",
             between13And24: "3.800€",
@@ -165,7 +165,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const fiordoRows: FiordoRow[] = isFiordoPlan
     ? [
         {
-          label: "Cantidad a abonar si se abandona la RedGW",
+          label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
             between5And12: "3.800€",
             between13And22: "2.300€",
@@ -217,7 +217,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const vikingRows: VikingRow[] = isVikingPlan
     ? [
         {
-          label: "Cantidad a abonar si se abandona la RedGW",
+          label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
             between5And12: "2.800€",
             between13And18: "1.300€",
@@ -269,7 +269,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const auroraRows: AuroraRow[] = isAuroraPlan
     ? [
         {
-          label: "Cantidad a pagar en caso de abandono",
+          label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
             between5And12: "1.800€",
             between13And16: "800€",
