@@ -67,7 +67,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
     : isAuroraPlan
       ? "Activa tu camino con la Modalidad Aurora"
       : isVikingPlan
-        ? "Impulsa tu candidatura con la Modalidad Vikinga"
+        ? "Activa tu camino con la Modalidad Vikinga"
         : isFinancingPlan
           ? "Activa tu camino con el Modelo de Amortización Total"
           : isFullInvestmentPlan
