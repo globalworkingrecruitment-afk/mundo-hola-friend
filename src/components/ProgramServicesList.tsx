@@ -9,6 +9,7 @@ import {
   FileCheck, 
   Building2, 
   UserCheck,
+  Video,
   LucideIcon
 } from "lucide-react";
 
@@ -21,6 +22,7 @@ const programServices: { text: string; icon: LucideIcon }[] = [
   { text: "Herramientas IA para aprender el idioma", icon: Sparkles },
   { text: "Autorización de trabajo de enfermería para Noruega", icon: FileCheck },
   { text: "Inserción Profesional en Noruega a través de la RedGW", icon: Building2 },
+  { text: "Clases grabadas para visualizarlas cuando lo necesites", icon: Video },
   { text: "Coordinador/a durante el programa y tu llegada a Noruega", icon: UserCheck },
 ];
 
