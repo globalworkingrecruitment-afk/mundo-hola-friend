@@ -271,7 +271,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
         {
           label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
-            between5And12: "1.800€",
+            between5And12: "*1.800€",
             between13And18: "300€",
             moreThan18: "0€",
           },
