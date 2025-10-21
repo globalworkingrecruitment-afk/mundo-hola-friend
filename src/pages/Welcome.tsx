@@ -55,60 +55,86 @@ const Welcome = () => {
   const promotions = [
     {
       value: "promocion-113-online-espana-20250204",
-      label: "Promoción 113 · Online · España · 4/2/2025 - 27/2/2026",
+      cohort: "Promoción 113",
+      modality: "Online · España",
+      dates: "4 feb 2025 — 27 feb 2026",
     },
     {
       value: "promocion-114-online-italia-20250203",
-      label: "Promoción 114 · Online · Italia · 3/2/2025 - 27/2/2026",
+      cohort: "Promoción 114",
+      modality: "Online · Italia",
+      dates: "3 feb 2025 — 27 feb 2026",
     },
     {
       value: "promocion-115-online-europa-20250325",
-      label: "Promoción 115 · Online · Europa · 25/3/2025 - 13/3/2026",
+      cohort: "Promoción 115",
+      modality: "Online · Europa",
+      dates: "25 mar 2025 — 13 mar 2026",
     },
     {
       value: "promocion-116-online-francia-20250317",
-      label: "Promoción 116 · Online · Francia · 17/3/2025 - 13/3/2026",
+      cohort: "Promoción 116",
+      modality: "Online · Francia",
+      dates: "17 mar 2025 — 13 mar 2026",
     },
     {
       value: "promocion-117-semi-espana-20250422",
-      label: "Promoción 117 · Semi · España · 22/4/2025 - 31/12/2025",
+      cohort: "Promoción 117",
+      modality: "Semipresencial · España",
+      dates: "22 abr 2025 — 31 dic 2025",
     },
     {
       value: "promocion-118-online-italia-20250616",
-      label: "Promoción 118 · Online · Italia · 16/6/2025 - 24/4/2026",
+      cohort: "Promoción 118",
+      modality: "Online · Italia",
+      dates: "16 jun 2025 — 24 abr 2026",
     },
     {
       value: "promocion-119-online-espana-20250609",
-      label: "Promoción 119 · Online · España · 9/6/2025 - 24/4/2026",
+      cohort: "Promoción 119",
+      modality: "Online · España",
+      dates: "9 jun 2025 — 24 abr 2026",
     },
     {
       value: "promocion-120-semipresencial-espana-20250915",
-      label: "Promoción 120 · Semipresencial · España · 15/9/2025 - 15/5/2026",
+      cohort: "Promoción 120",
+      modality: "Semipresencial · España",
+      dates: "15 sep 2025 — 15 may 2026",
     },
     {
       value: "promocion-120-online-espana-20250915",
-      label: "Promoción 120 · Online · España · 15/9/2025 - 15/5/2026",
+      cohort: "Promoción 120",
+      modality: "Online · España",
+      dates: "15 sep 2025 — 15 may 2026",
     },
     {
       value: "promocion-121-semipresencial-italia-20250915",
-      label: "Promoción 121 · Semipresencial · Italia · 15/9/2025 - 29/5/2026",
+      cohort: "Promoción 121",
+      modality: "Semipresencial · Italia",
+      dates: "15 sep 2025 — 29 may 2026",
     },
     {
       value: "promocion-121-online-italia-20250915",
-      label: "Promoción 121 · Online · Italia · 15/9/2025 - 29/5/2026",
+      cohort: "Promoción 121",
+      modality: "Online · Italia",
+      dates: "15 sep 2025 — 29 may 2026",
     },
     {
       value: "promocion-122-online-fr-esp-eu-20250915",
-      label: "Promoción 122 · Online · FR - ESP - EU · 15/9/2025 - 29/5/2026",
+      cohort: "Promoción 122",
+      modality: "Online · FR · ESP · EU",
+      dates: "15 sep 2025 — 29 may 2026",
     },
     {
       value: "promocion-123-presencial-espana-20251007",
-      label: "Promoción 123 · Presen. · España · 7/10/2025 - 28/3/2026",
+      cohort: "Promoción 123",
+      modality: "Presencial · España",
+      dates: "7 oct 2025 — 28 mar 2026",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/30 via-accent/25 to-secondary/30 relative overflow-hidden">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-primary/30 via-accent/25 to-secondary/30 relative overflow-hidden">
       {/* Background elements */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-15"
@@ -118,110 +144,118 @@ const Welcome = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMm0tNCAwYzAgMS4xLS45IDItMiAycy0yLS45LTItMiAuOS0yIDItMiAyIC45IDIgMiIvPjwvZz48L2c+PC9zdmc+')] opacity-10" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-12">
-        {/* Logo */}
-        <div className="mb-8 animate-fade-in">
-          <img src={logoGW} alt="Global Working" className="h-16 md:h-20 drop-shadow-2xl" />
-        </div>
-
-        {/* Welcome Card */}
-        <div className="w-full max-w-2xl bg-card/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 animate-slide-up">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="flex justify-center mb-4">
-              <div className="bg-primary/10 p-4 rounded-full">
-                <Ship className="w-12 h-12 text-primary" />
-              </div>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Bienvenido a Global Working
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Estamos encantados de que te hayas unido a este barco para comenzar el viaje
-            </p>
+      <div className="relative z-10 flex min-h-[100dvh] flex-col px-4 py-6">
+        <div className="flex flex-1 flex-col items-center justify-center gap-6">
+          {/* Logo */}
+          <div className="animate-fade-in">
+            <img src={logoGW} alt="Global Working" className="h-16 md:h-20 drop-shadow-2xl" />
           </div>
 
-          {/* Form */}
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tu nombre</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Ej: María García" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tu correo electrónico</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="tu@email.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="promotion"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Selecciona tu promoción</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Elige tu promoción" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {promotions.map((promo) => (
-                          <SelectItem key={promo.value} value={promo.value}>
-                            {promo.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Helper text */}
-              <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
-                <p className="font-semibold mb-2">¿No sabes tu promoción?</p>
-                <p>
-                  Indica la modalidad que elegiste (presencial, semipresencial u online) 
-                  y el mes en que comienzas. Con esta información podremos identificar tu promoción.
-                </p>
+          {/* Welcome Card */}
+          <div className="w-full max-w-2xl bg-card/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 animate-slide-up">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <div className="flex justify-center mb-4">
+                <div className="bg-primary/10 p-4 rounded-full">
+                  <Ship className="w-12 h-12 text-primary" />
+                </div>
               </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+                Bienvenido a Global Working
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Estamos encantados de que te hayas unido a este barco para comenzar el viaje
+              </p>
+            </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                variant="secondary"
-                className="w-full text-lg gap-2 group shadow-lg shadow-secondary/30 hover:shadow-secondary/50"
-              >
-                Comencemos este viaje juntos
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
-          </Form>
+            {/* Form */}
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Tu nombre</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Ej: María García" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Tu correo electrónico</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="tu@email.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="promotion"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Selecciona tu promoción</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="min-h-[3.75rem] text-left [&>span]:flex [&>span]:flex-col [&>span]:items-start [&>span]:gap-0.5 [&>span]:line-clamp-none [&>span>span:first-child]:text-sm [&>span>span:first-child]:font-semibold [&>span>span:nth-child(n+2)]:text-xs [&>span>span:nth-child(n+2)]:text-muted-foreground">
+                            <SelectValue placeholder="Elige tu promoción" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-card/95 backdrop-blur-md border border-border">
+                          {promotions.map((promo) => (
+                            <SelectItem
+                              key={promo.value}
+                              value={promo.value}
+                              className="flex-col items-start gap-1 py-2 leading-tight"
+                            >
+                              <span className="text-sm font-semibold text-foreground">{promo.cohort}</span>
+                              <span className="text-xs text-muted-foreground">{promo.modality}</span>
+                              <span className="text-xs text-muted-foreground">{promo.dates}</span>
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Helper text */}
+                <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
+                  <p className="font-semibold mb-2">¿No sabes tu promoción?</p>
+                  <p>
+                    Indica la modalidad que elegiste (presencial, semipresencial u online)
+                    y el mes en que comienzas. Con esta información podremos identificar tu promoción.
+                  </p>
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  variant="secondary"
+                  className="w-full text-lg gap-2 group shadow-lg shadow-secondary/30 hover:shadow-secondary/50"
+                >
+                  Comencemos este viaje juntos
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </form>
+            </Form>
+          </div>
         </div>
 
         {/* Footer note */}
-        <p className="text-primary-foreground/80 text-sm mt-8 text-center max-w-md">
-          Tu aventura profesional en Noruega está a punto de comenzar. 
+        <p className="text-primary-foreground/80 text-sm mt-6 text-center max-w-md mx-auto">
+          Tu aventura profesional en Noruega está a punto de comenzar.
           Prepárate para una experiencia que transformará tu carrera.
         </p>
       </div>
