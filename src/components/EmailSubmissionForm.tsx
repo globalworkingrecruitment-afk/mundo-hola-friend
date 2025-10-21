@@ -250,12 +250,12 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
       label: "Trabajando como enfermera entre 5 y 12 meses en la RedGW",
     },
     {
-      key: "between13And16",
-      label: "Trabajando como enfermera entre 13 y 16 meses en la RedGW",
+      key: "between13And18",
+      label: "Trabajando como enfermera entre 13 y 18 meses en la RedGW",
     },
     {
-      key: "from16Onwards",
-      label: "Trabajando como enfermera a partir del mes 16 en la RedGW",
+      key: "moreThan18",
+      label: "Trabajando como enfermera a partir del mes 18 en la RedGW",
     },
   ] as const;
 
@@ -272,8 +272,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
           label: "Cantidad pendiente a abonar si se abandona la RedGW",
           values: {
             between5And12: "1.800€",
-            between13And16: "800€",
-            from16Onwards: "0€",
+            between13And18: "300€",
+            moreThan18: "0€",
           },
         },
         {
@@ -281,17 +281,17 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
             "Descuento del que te beneficias por trabajar en la RedGW",
           values: {
             between5And12: "0€",
-            between13And16: "1.000€",
-            from16Onwards: "1.800€",
+            between13And18: "1.500€",
+            moreThan18: "1.800€",
           },
         },
         {
           label:
-            "% de descuento que recibes por trabajar en la RedGW como enfermera",
+            "% de descuento",
           values: {
             between5And12: "0%",
-            between13And16: "19%",
-            from16Onwards: "34%",
+            between13And18: "28%",
+            moreThan18: "34%",
           },
         },
       ]
@@ -1020,13 +1020,13 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
               El Programa de Formación y Desarrollo del Talento de Global Working tiene un valor de
               5.300 €, pero con la Modalidad Aurora podrás disfrutar de la cuota mensual más baja y
               la amortización más ventajosa, ya que solo tendrás que abonar 125€ al mes y solamente
-              necesitarás estar 16 meses de trabajo en la RedGW (tan solo 1 año y 4 meses) para
+              necesitarás estar 18 meses de trabajo en la RedGW (tan solo 1 año y medio) para
               beneficiarte de un ahorro significativo.
             </p>
             <p>
               Además, tu fidelidad se recompensa con importantes beneficios: trabajando entre 13 y
-              16 meses conseguirás un descuento de 1.000 € (obteniendo un 19% de ahorro), mientras
-              que trabajando como enfermera/o más de 16 meses el descuento por fidelidad asciende a
+              18 meses conseguirás un descuento de 1.500 € (obteniendo un 28% de ahorro), mientras
+              que trabajando como enfermera/o más de 18 meses el descuento por fidelidad asciende a
               1.800 € (un 34% de ahorro total).
             </p>
             <p>
