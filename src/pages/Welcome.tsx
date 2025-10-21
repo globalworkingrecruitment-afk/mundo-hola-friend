@@ -221,10 +221,10 @@ const Welcome = () => {
                               <SelectItem
                                 key={promo.value}
                                 value={promo.value}
-                                className="flex-col items-start gap-1 py-2 leading-tight"
+                                className="flex-col items-start py-3 leading-tight"
                               >
-                                <span className="text-sm font-semibold text-foreground">{promo.cohort}</span>
-                                <span className="text-xs text-muted-foreground mt-1">{promo.modality} · {formattedDate}</span>
+                                <span className="text-sm font-semibold text-foreground mb-1.5">{promo.cohort}</span>
+                                <span className="text-xs text-muted-foreground">{promo.modality} · {formattedDate}</span>
                               </SelectItem>
                             );
                           })}
