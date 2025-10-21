@@ -217,14 +217,6 @@ const Index = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Tu Futuro Profesional en Noruega Comienza Aquí
             </h1>
-            <div className="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg mb-6">
-              <p className="text-lg md:text-xl font-semibold text-primary-foreground">
-                Promoción 113 Online
-              </p>
-              <p className="text-sm md:text-base opacity-90">
-                Febrero 2025 - Diciembre 2026
-              </p>
-            </div>
             <p className="text-xl md:text-2xl mb-8 opacity-95">
               Programa de Formación y Desarrollo del Talento para Enfermeros
             </p>
