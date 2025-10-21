@@ -1030,6 +1030,12 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
               1.800 € (un 34% de ahorro total).
             </p>
             <p>
+              *Ya que en esta Modalidad se proporciona un pequeño pago a lo largo del tiempo, en el hipotético caso de abandonar la RedGW entre el mes 5 y 12 de experiencia en Noruega, la cantidad a abonar sería el resultado de restar al valor del Programa (5.300€) la cantidad que ya se haya pagado.
+            </p>
+            <p>
+              Por ejemplo, si realizo una formación online de 10 meses (habré abonado 125€*10 meses = 1.250€) y después estoy trabajando en Noruega durante otros 10 meses en la RedGW (habré pagado otros 1.250€). El total habría sido 2.500€. En el supuesto de decidir abandonar la RedGW en el mes 10 de experiencia en Noruega, deberé abonar la diferencia hasta 5.300€, concretamente 2.800€. Por otro lado, en el supuesto de trabajar en la RedGW más de 18 meses me beneficiaré de un descuento del 34% ya que mi fidelidad será premiada con un descuento de 1.800€.
+            </p>
+            <p>
               Con la Modalidad Aurora, no solo ahorras: te abres camino hacia una nueva vida en
               Noruega, creciendo como profesional y como persona mientras descubres la magia del
               norte, sus paisajes, su calma y su forma única de cuidar.
