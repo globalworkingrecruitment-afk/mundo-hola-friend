@@ -962,86 +962,88 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
       )}
 
       {isAuroraPlan && (
-        <div className="mt-8 space-y-4 rounded-xl border bg-muted/40 p-6">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground">
+        <Card className="mt-8 overflow-hidden border-2 shadow-[var(--shadow-elegant)]">
+          <CardHeader className="bg-gradient-to-r from-primary to-accent pb-8 text-primary-foreground">
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              <CardTitle className="text-2xl">
                 Programa de Formación y Desarrollo del Talento Global Working - Modalidad Aurora
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la Red Global Working.
-              </p>
+              </CardTitle>
             </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-sm">
-              <thead>
-                <tr className="bg-muted text-left">
-                  <th scope="col" className="px-4 py-3 font-semibold text-muted-foreground">
-                    Meses
-                  </th>
-                  {auroraScenarios.map((scenario) => (
-                    <th
-                      key={scenario.key}
-                      scope="col"
-                      className="px-4 py-3 font-semibold text-muted-foreground"
-                    >
-                      {scenario.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {auroraRows.map((row) => (
-                  <tr key={row.label} className="border-t border-border">
-                    <th
-                      scope="row"
-                      className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
-                    >
-                      {row.label}
+            <CardDescription className="text-base text-primary-foreground/90">
+              Descubre cómo evoluciona tu inversión en función del tiempo que trabajes en la Red Global Working.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6 p-6">
+            <div className="overflow-x-auto rounded-xl border bg-background shadow-sm">
+              <table className="w-full min-w-[640px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-muted/80 text-left">
+                    <th scope="col" className="sr-only px-4 py-3 font-semibold text-muted-foreground">
+                      Concepto
                     </th>
                     {auroraScenarios.map((scenario) => (
-                      <td
-                        key={`${row.label}-${scenario.key}`}
-                        className="px-4 py-4 text-center text-sm text-muted-foreground"
+                      <th
+                        key={scenario.key}
+                        scope="col"
+                        className="px-4 py-3 text-sm font-semibold text-foreground"
                       >
-                        {row.values[scenario.key]}
-                      </td>
+                        {scenario.label}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {auroraRows.map((row) => (
+                    <tr key={row.label} className="border-t border-border">
+                      <th
+                        scope="row"
+                        className="bg-muted/40 px-4 py-4 text-left text-sm font-semibold text-foreground"
+                      >
+                        {row.label}
+                      </th>
+                      {auroraScenarios.map((scenario) => (
+                        <td
+                          key={`${row.label}-${scenario.key}`}
+                          className="px-4 py-4 text-sm text-muted-foreground"
+                        >
+                          {row.values[scenario.key]}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-          <div className="space-y-4 text-sm text-muted-foreground">
-            <p>
-              El Programa de Formación y Desarrollo del Talento de Global Working tiene un valor de
-              5.300 €, pero con la Modalidad Aurora podrás disfrutar de la cuota mensual más baja y
-              la amortización más ventajosa, ya que solo tendrás que abonar 125€ al mes y solamente
-              necesitarás estar 18 meses de trabajo en la RedGW (tan solo 1 año y medio) para
-              beneficiarte de un ahorro significativo.
-            </p>
-            <p>
-              Además, tu fidelidad se recompensa con importantes beneficios: trabajando entre 13 y
-              18 meses conseguirás un descuento de 1.500 € (obteniendo un 28% de ahorro), mientras
-              que trabajando como enfermera/o más de 18 meses el descuento por fidelidad asciende a
-              1.800 € (un 34% de ahorro total).
-            </p>
-            <p>
-              *Ya que en esta Modalidad se proporciona un pequeño pago a lo largo del tiempo, en el hipotético caso de abandonar la RedGW entre el mes 5 y 12 de experiencia en Noruega, la cantidad a abonar sería el resultado de restar al valor del Programa (5.300€) la cantidad que ya se haya pagado.
-            </p>
-            <p>
-              Por ejemplo, si realizo una formación online de 10 meses (habré abonado 125€*10 meses = 1.250€) y después estoy trabajando en Noruega durante otros 10 meses en la RedGW (habré pagado otros 1.250€). El total habría sido 2.500€. En el supuesto de decidir abandonar la RedGW en el mes 10 de experiencia en Noruega, deberé abonar la diferencia hasta 5.300€, concretamente 2.800€. Por otro lado, en el supuesto de trabajar en la RedGW más de 18 meses me beneficiaré de un descuento del 34% ya que mi fidelidad será premiada con un descuento de 1.800€.
-            </p>
-            <p>
-              Con la Modalidad Aurora, no solo ahorras: te abres camino hacia una nueva vida en
-              Noruega, creciendo como profesional y como persona mientras descubres la magia del
-              norte, sus paisajes, su calma y su forma única de cuidar.
-            </p>
-          </div>
-        </div>
+            <div className="space-y-4 text-sm text-muted-foreground">
+              <p>
+                El Programa de Formación y Desarrollo del Talento de Global Working tiene un valor de
+                5.300 €, pero con la Modalidad Aurora podrás disfrutar de la cuota mensual más baja y
+                la amortización más ventajosa, ya que solo tendrás que abonar 125€ al mes y solamente
+                necesitarás estar 18 meses de trabajo en la RedGW (tan solo 1 año y medio) para
+                beneficiarte de un ahorro significativo.
+              </p>
+              <p>
+                Además, tu fidelidad se recompensa con importantes beneficios: trabajando entre 13 y
+                18 meses conseguirás un descuento de 1.500 € (obteniendo un 28% de ahorro), mientras
+                que trabajando como enfermera/o más de 18 meses el descuento por fidelidad asciende a
+                1.800 € (un 34% de ahorro total).
+              </p>
+              <p>
+                *Ya que en esta Modalidad se proporciona un pequeño pago a lo largo del tiempo, en el hipotético caso de abandonar la RedGW entre el mes 5 y 12 de experiencia en Noruega, la cantidad a abonar sería el resultado de restar al valor del Programa (5.300€) la cantidad que ya se haya pagado.
+              </p>
+              <p>
+                Por ejemplo, si realizo una formación online de 10 meses (habré abonado 125€*10 meses = 1.250€) y después estoy trabajando en Noruega durante otros 10 meses en la RedGW (habré pagado otros 1.250€). El total habría sido 2.500€. En el supuesto de decidir abandonar la RedGW en el mes 10 de experiencia en Noruega, deberé abonar la diferencia hasta 5.300€, concretamente 2.800€. Por otro lado, en el supuesto de trabajar en la RedGW más de 18 meses me beneficiaré de un descuento del 34% ya que mi fidelidad será premiada con un descuento de 1.800€.
+              </p>
+              <p>
+                Con la Modalidad Aurora, no solo ahorras: te abres camino hacia una nueva vida en
+                Noruega, creciendo como profesional y como persona mientras descubres la magia del
+                norte, sus paisajes, su calma y su forma única de cuidar.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       )}
 
       {isFullInvestmentPlan && (
