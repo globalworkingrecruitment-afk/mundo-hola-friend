@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const programServices: { text: string; icon: LucideIcon }[] = [
-  { text: "Curso de Noruego hasta el B1+", icon: GraduationCap },
+  { text: "Curso de Noruego hasta el B1+ en modalidad online, semipresencial o presencial", icon: GraduationCap },
   { text: "Curso de Helsenorsk (Noruego sanitario y procesos de trabajo en enfermería)", icon: Stethoscope },
   { text: "Curso de Helsenorsk Enfermedades y Tratamientos", icon: FileText },
   { text: "Curso de Desarrollo Profesional y Cultura", icon: Briefcase },
