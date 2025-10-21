@@ -1101,7 +1101,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
         >
           <Button
             type="button"
-            onClick={handleGoHome}
+            onClick={onBack}
             className={cn(
               "flex-1 bg-red-600 text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-red-500",
               shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
