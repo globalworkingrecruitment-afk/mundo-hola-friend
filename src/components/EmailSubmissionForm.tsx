@@ -146,12 +146,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
       label: "Trabajando como enfermera entre 5 y 12 meses en la RedGW",
     },
     {
-      key: "between13And20",
-      label: "Trabajando como enfermera entre 13 y 20 meses en la RedGW",
-    },
-    {
-      key: "between21And22",
-      label: "Trabajando como enfermera entre 21 y 22 meses en la RedGW",
+      key: "between13And22",
+      label: "Trabajando como enfermera entre 13 y 22 meses en la RedGW",
     },
     {
       key: "moreThan22",
@@ -172,8 +168,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
           label: "Cantidad a abonar si se abandona la RedGW",
           values: {
             between5And12: "3.800€",
-            between13And20: "2.300€",
-            between21And22: "800€",
+            between13And22: "2.300€",
             moreThan22: "0€",
           },
         },
@@ -181,18 +176,16 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
           label: "Descuento del que te beneficias por trabajar en la RedGW",
           values: {
             between5And12: "0€",
-            between13And20: "1.500€",
-            between21And22: "3.000€",
+            between13And22: "1.500€",
             moreThan22: "3.800€",
           },
         },
         {
           label:
-            "% de descuento que recibes por trabajar en la RedGW como enfermera",
+            "% de descuento",
           values: {
             between5And12: "0,00%",
-            between13And20: "28,30%",
-            between21And22: "56,60%",
+            between13And22: "28,30%",
             moreThan22: "71,70%",
           },
         },
@@ -889,9 +882,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
 
             <p className="text-sm text-muted-foreground">
               El valor del Programa de Formación y Desarrollo del Talento de Global Working es de 5.300€. Eligiendo la Modalidad
-              Fiordo, tendrás un descuento de 1.500€ (un 28,3% de ahorro) al trabajar entre 13 y 20 meses como enfermero/a en la
-              RedGW. Además, trabajando entre 21 y 22 meses el ahorro asciende a 3.000€ (lo que supone un 56,6% de ahorro). Con tan
-              solo más de 22 meses de experiencia en la RedGW el ahorro llega a alcanzar los 3.800€, lo que equivale a un 71,7%.
+              Fiordo, tendrás un descuento de 1.500€ (un 28,3% de ahorro) al trabajar entre 13 y 22 meses como enfermero/a en la
+              RedGW. Con más de 22 meses de experiencia en la RedGW el ahorro llega a alcanzar los 3.800€, lo que equivale a un 71,7%.
               En definitiva, una opción ideal para vivir una experiencia enriquecedora en Noruega, trabajar en su Sistema Público
               y descubrir las maravillas del país escandinavo.
             </p>
