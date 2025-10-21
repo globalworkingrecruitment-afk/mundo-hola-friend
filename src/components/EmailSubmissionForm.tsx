@@ -63,7 +63,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   const isFullInvestmentPlan = selectedPlan.id === "inversion-completa";
 
   const contactSectionTitle = isFiordoPlan
-    ? "Da el paso a la Modalidad Fiordo"
+    ? "Activa tu camino con la Modalidad Fiordo"
     : isAuroraPlan
       ? "Activa tu camino con la Modalidad Aurora"
       : isVikingPlan
