@@ -359,7 +359,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
     return Number.isNaN(result) ? 0 : result;
   };
 
-  const submitRegistration = async (nameValue: string, emailValue: string) => {
+  const submitRegistration = async (nameValue: string, emailValue: string, promotionValue: string = "") => {
     if (!emailValue || !nameValue) {
       toast({
         title: "Error",
@@ -408,6 +408,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
           body: JSON.stringify({
             name: nameValue,
             email: emailValue,
+            promotion: promotionValue,
             selectedOption: planTitle,
             totalPrice,
             monthlyPayment: selectedPlan.monthlyPayment,
@@ -467,8 +468,8 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
     }
 
     try {
-      const parsedData = JSON.parse(storedData) as { name?: string; email?: string };
-      await submitRegistration(parsedData.name ?? "", parsedData.email ?? "");
+      const parsedData = JSON.parse(storedData) as { name?: string; email?: string; promotion?: string };
+      await submitRegistration(parsedData.name ?? "", parsedData.email ?? "", parsedData.promotion ?? "");
     } catch (error) {
       console.error("Error parsing stored user data:", error);
       toast({
