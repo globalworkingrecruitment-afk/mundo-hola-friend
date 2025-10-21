@@ -212,17 +212,23 @@ const Welcome = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="bg-card/95 backdrop-blur-md border border-border">
-                          {promotions.map((promo) => (
-                            <SelectItem
-                              key={promo.value}
-                              value={promo.value}
-                              className="flex-col items-start gap-1 py-2 leading-tight"
-                            >
-                              <span className="text-sm font-semibold text-foreground">{promo.cohort}</span>
-                              <span className="text-xs text-muted-foreground">{promo.modality}</span>
-                              <span className="text-xs text-muted-foreground">{promo.dates}</span>
-                            </SelectItem>
-                          ))}
+                          {promotions.map((promo) => {
+                            const modalityOnly = promo.modality.split(' · ')[0];
+                            const startDate = promo.dates.split(' — ')[0];
+                            const [day, month, year] = startDate.split(' ');
+                            const formattedDate = `${month} ${year}`;
+                            
+                            return (
+                              <SelectItem
+                                key={promo.value}
+                                value={promo.value}
+                                className="flex-col items-start gap-1 py-2 leading-tight"
+                              >
+                                <span className="text-sm font-semibold text-foreground">{promo.cohort}</span>
+                                <span className="text-xs text-muted-foreground">{modalityOnly} · {formattedDate}</span>
+                              </SelectItem>
+                            );
+                          })}
                         </SelectContent>
                       </Select>
                       <FormMessage />
