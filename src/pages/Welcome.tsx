@@ -21,7 +21,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import logoGW from "@/assets/globalworking-logo.png";
 import norwayHero from "@/assets/norway-fjord-hero.jpg";
-import { Ship, ArrowRight } from "lucide-react";
+import { Globe, ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100),
@@ -157,7 +157,7 @@ const Welcome = () => {
             <div className="text-center mb-8">
               <div className="flex justify-center mb-4">
                 <div className="bg-primary/10 p-4 rounded-full">
-                  <Ship className="w-12 h-12 text-primary" />
+                  <Globe className="w-12 h-12 text-primary" />
                 </div>
               </div>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
