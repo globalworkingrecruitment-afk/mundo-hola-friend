@@ -31,37 +31,31 @@ export const ProgramServicesList = ({ className, variant = "stacked" }: ProgramS
         className,
       )}
     >
-      {programServices.map((service) => {
-        const needsManualBreak =
-          service === "Curso de Desarrollo Profesional y Cultura";
-
-        return (
-          <li
-            key={service}
+      {programServices.map((service) => (
+        <li
+          key={service}
+          className={cn(
+            "flex items-start gap-2",
+            isGrid &&
+              "rounded-xl border border-border/60 bg-background/80 p-4 shadow-sm backdrop-blur-sm",
+          )}
+        >
+          <Check
             className={cn(
-              "flex items-start gap-2",
-              isGrid &&
-                "rounded-xl border border-border/60 bg-background/80 p-4 shadow-sm backdrop-blur-sm",
+              "mt-0.5 h-4 w-4 flex-shrink-0 text-accent",
+              isGrid && "mt-1 h-5 w-5 text-primary",
+            )}
+          />
+          <span
+            className={cn(
+              "leading-relaxed",
+              service === "Curso de Desarrollo Profesional y Cultura" && "whitespace-nowrap",
             )}
           >
-            <Check
-              className={cn(
-                "mt-0.5 h-4 w-4 flex-shrink-0 text-accent",
-                isGrid && "mt-1 h-5 w-5 text-primary",
-              )}
-            />
-            {needsManualBreak ? (
-              <span className="leading-relaxed">
-                Curso de Desarrollo Profesional y
-                <br />
-                Cultura
-              </span>
-            ) : (
-              <span className="leading-relaxed">{service}</span>
-            )}
-          </li>
-        );
-      })}
+            {service}
+          </span>
+        </li>
+      ))}
     </ul>
   );
 };
