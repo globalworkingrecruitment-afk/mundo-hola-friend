@@ -20,7 +20,7 @@ const programServices: { text: string; icon: LucideIcon }[] = [
   { text: "Curso Guía para la Vida en Noruega", icon: Compass },
   { text: "Herramientas IA para aprender el idioma", icon: Sparkles },
   { text: "Autorización de trabajo", icon: FileCheck },
-  { text: "Inserción Profesional en Noruega", icon: Building2 },
+  { text: "Inserción Profesional en Noruega a través de la RedGW", icon: Building2 },
   { text: "Coordinador/a durante el programa y tu llegada a Noruega", icon: UserCheck },
 ];
 
