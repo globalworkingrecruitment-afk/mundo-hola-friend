@@ -440,7 +440,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
   };
 
   const handleGoHome = () => {
-    navigate("/");
+    navigate("/inicio");
   };
 
   const handleActivate = async () => {
@@ -1107,7 +1107,7 @@ export const EmailSubmissionForm = ({ selectedPlan, onBack }: EmailSubmissionFor
               shouldUsePremiumFormStyle && "sm:flex-none sm:px-8",
             )}
           >
-            Este no es mi opcion favorita
+            Esta no es mi opción favorita
           </Button>
           <Button
             type="button"
