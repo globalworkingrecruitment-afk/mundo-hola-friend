@@ -221,6 +221,7 @@ const Welcome = () => {
                               <SelectItem
                                 key={promo.value}
                                 value={promo.value}
+                                textValue={`${promo.cohort} · ${promo.modality} · ${formattedDate}`}
                                 className="flex-col items-start py-3 leading-tight"
                               >
                                 <span className="text-sm font-semibold text-foreground mb-1.5">{promo.cohort}</span>
