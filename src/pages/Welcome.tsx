@@ -213,7 +213,6 @@ const Welcome = () => {
                         </FormControl>
                         <SelectContent className="bg-card/95 backdrop-blur-md border border-border">
                           {promotions.map((promo) => {
-                            const modalityOnly = promo.modality.split(' · ')[0];
                             const startDate = promo.dates.split(' — ')[0];
                             const [day, month, year] = startDate.split(' ');
                             const formattedDate = `${month} ${year}`;
@@ -225,7 +224,7 @@ const Welcome = () => {
                                 className="flex-col items-start gap-1 py-2 leading-tight"
                               >
                                 <span className="text-sm font-semibold text-foreground">{promo.cohort}</span>
-                                <span className="text-xs text-muted-foreground">{modalityOnly} · {formattedDate}</span>
+                                <span className="text-xs text-muted-foreground mt-1">{promo.modality} · {formattedDate}</span>
                               </SelectItem>
                             );
                           })}
