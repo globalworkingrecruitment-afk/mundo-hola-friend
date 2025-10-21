@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Ship, X } from "lucide-react";
+import { Globe, X } from "lucide-react";
 
 interface OnboardingTutorialProps {
   onComplete: () => void;
@@ -152,7 +152,7 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
 
         {/* Mascota */}
         <div className="bg-gradient-to-br from-primary to-accent rounded-full p-4 shadow-2xl animate-bounce">
-          <Ship className="w-10 h-10 text-primary-foreground" />
+          <Globe className="w-10 h-10 text-primary-foreground" />
         </div>
       </div>
     </>
