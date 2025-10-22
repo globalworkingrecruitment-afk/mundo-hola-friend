@@ -6,7 +6,6 @@ import { EmailSubmissionForm } from "@/components/EmailSubmissionForm";
 import { OnboardingTutorial } from "@/components/OnboardingTutorial";
 import { ProgramServicesList } from "@/components/ProgramServicesList";
 import logoGW from "@/assets/globalworking-logo.png";
-import logoRed from "@/assets/redgw-logo.png";
 import norwayHero from "@/assets/norway-fjord-hero.jpg";
 import amandaPhoto from "@/assets/amanda-casado.jpg";
 import giuseppeNicolo from "@/assets/giuseppe-nicolo.jpeg";
@@ -387,17 +386,13 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="bg-card border-t">
-        <div className="container mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <img src={logoGW} alt="GlobalWorking" className="h-12 mb-4" />
+        <div className="container mx-auto px-4 py-10">
+          <div className="text-center max-w-2xl mx-auto">
+            <img src={logoGW} alt="GlobalWorking" className="h-12 mb-4 mx-auto" />
             <p className="text-muted-foreground">
               Global Working Recruitment ofrece programas integrales de formación y acompañamiento para profesionales de la
               enfermería que desean desarrollar su carrera en Noruega.
             </p>
-          </div>
-          <div className="text-center md:text-right">
-            <p className="text-sm text-muted-foreground">Miembros de:</p>
-            <img src={logoRed} alt="Red Global Working" className="h-12 ml-auto" />
           </div>
         </div>
       </footer>
