@@ -375,7 +375,7 @@ const Index = () => {
               <Button
                 size="lg"
                 className="gap-2"
-                onClick={() => window.open('https://www.instagram.com/globalworking/', '_blank')}
+                onClick={() => window.open('https://www.instagram.com/global_working/', '_blank')}
               >
                 <Instagram className="w-5 h-5" />
                 Síguenos en Instagram
